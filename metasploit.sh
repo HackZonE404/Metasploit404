@@ -10,7 +10,7 @@ if [ $name != "metasploit.sh" ]; then
 	exit 1
 fi
 
-msfvar=4.17.14
+msfvar=4.17.19
 msfpath='/data/data/com.termux/files/home'
 if [ -d "$msfpath/metasploit-framework" ]; then
 	echo "metasploit is installed"
@@ -38,7 +38,8 @@ fi
 if [ -e $PATH/bin/msfvenom ];then
 	rm $PATH/bin/msfvenom
 fi
-
+ln -s $msfpath/metasploit-framework/msfconsole /data/data/com.termux/files/usr/bin/
+ln -s $msfpath/metasploit-framework/msfvenom /data/data/com.termux/files/usr/bin/
 echo "Creating database"
 
 cd $msfpath/metasploit-framework/config
@@ -53,4 +54,5 @@ createdb msf_database
 
 rm $msfpath/$msfvar.tar.gz
 
-echo "you can directly use msfvenom or msfconsole rather than ./msfvenom or ./msfconsole as they are symlinked to $PREFIX/bin"
+echo "you can directly use msfvenom or msfconsole rather than ./msfvenom or ./msfconsole as they are symlinked to $PREFIX/bin
+Maybe Modified By HackZonE YouTube Channel"
